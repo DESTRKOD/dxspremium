@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DxS Shop PREMIUM — Кристаллы</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+
+  <link href="https://db.onlinewebfonts.com/c/4fb841e9f72b7dea81082be1ad30ecbb?family=Pusia-Bold" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Lilita One', cursive;
+      color: #ffffff;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+
+      background-image: 
+        linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)),
+        url('https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9HYnI1amhvaWNpWkRndVczRUFmSi5wbmcifQ:supercell:haxq4MrS3LvOuv7ZvK4JM_-fXRyNmxHKC7yEfv-_p7o?width=2400');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 54px;
+      background: rgba(15,15,15,0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      z-index: 100;
+    }
+
+    .back-btn {
+      width: 42px;
+      height: 42px;
+      background: #1c1c1c;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #ffca28;
+      font-weight: bold;
+      text-decoration: none;
+      border: none;
+      box-shadow: inset 0 3px 8px rgba(0,0,0,0.75), 0 4px 10px rgba(0,0,0,0.7);
+    }
+
+    .cart { position: relative; }
+
+    .cart-icon { width: 32px; height: 32px; fill: #ffca28; }
+
+    .cart-badge {
+      position: absolute;
+      top: -8px; right: -8px;
+      background: #ffca28;
+      color: #000;
+      font-size: 12px;
+      font-weight: bold;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+
+    .tabs-container {
+      margin-top: 54px;
+      background: rgba(15,15,15,0.92);
+      border-bottom: 1px solid #222;
+      padding: 10px 12px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 10px 0;
+      font-size: 18px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-family: 'Pusia-Bold', 'Lilita One', cursive !important;
+      font-weight: normal;
+      border-right: 1px solid #333;
+      white-space: nowrap;
+    }
+
+    .tab:last-child { border-right: none; }
+
+    .tab.active { background: #ffca28; color: #000; }
+    .tab.inactive { color: #ccc; }
+
+    .title {
+      text-align: center;
+      color: #ffca28;
+      font-size: 26px;
+      margin: 12px 0 16px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 3px 10px rgba(255,202,40,0.4);
+      font-family: 'Pusia-Bold', 'Lilita One', cursive !important;
+    }
+
+    .container {
+      padding: 0 10px 80px;
+      max-width: 100%;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* всегда 3 в ряду */
+      gap: 12px;
+      max-width: 480px; /* ограничиваем ширину, чтобы не растягивалось на большом экране */
+      margin: 0 auto;
+    }
+
+    .card {
+      background: rgba(21,21,21,0.94);
+      border-radius: 16px;
+      overflow: hidden;
+      text-align: center;
+      padding: 16px 8px 14px;
+      border: 2px solid #2a2a2a;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    .crystal {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 10px;
+      background: url('https://www.nicepng.com/png/detail/909-9099090_gem-grab-brawl-stars.png') center/contain no-repeat;
+      filter: drop-shadow(0 8px 24px rgba(255,202,40,0.6));
+    }
+
+    .name { font-size: 14px; color: #ddd; margin-bottom: 6px; line-height: 1.2; text-transform: uppercase; }
+    .gems { font-size: 20px; color: #ffca28; margin-bottom: 4px; text-shadow: 0 2px 8px rgba(255,202,40,0.5); }
+    .price { font-size: 16px; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.8); }
+    .dots { font-size: 28px; color: #444; letter-spacing: 6px; margin-top: 16px; }
+
+    /* На десктопе тоже строго 3 в ряд, но чуть крупнее */
+    @media (min-width: 521px) {
+      .header { height: 60px; padding: 0 20px; }
+      .back-btn { width: 52px; height: 52px; font-size: 34px; border-radius: 14px; }
+      .tabs { max-width: 400px; }
+      .tab { font-size: 22px; padding: 14px 0; }
+      .title { font-size: 32px; text-align: right; margin: 20px 24px 16px 0; padding-right: 24px; }
+      .container { padding: 0 24px 120px; }
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 720px;
+        gap: 20px;
+      }
+      .card { padding: 20px 10px 16px; border: 3px solid #2a2a2a; }
+      .crystal { width: 100px; height: 100px; margin-bottom: 12px; }
+      .name { font-size: 16px; }
+      .gems { font-size: 24px; }
+      .price { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <a href="#" class="back-btn">←</a>
+    <div class="cart">
+      <svg class="cart-icon" viewBox="0 0 24 24">
+        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zM7 13h10l3-8H5.82l-.58-3H1v2h2l3.6 7.59-1.35 2.44C4.52 13.37 5.48 15 7 15h12v-2H7v-2z"/>
+      </svg>
+      <span class="cart-badge">1</span>
+    </div>
+  </div>
+
+  <div class="tabs-container">
+    <div class="tabs">
+      <div class="tab active">ОСНОВНОЕ</div>
+      <div class="tab inactive">АКЦИИ</div>
+    </div>
+  </div>
+
+  <div class="title">CRYSTALS</div>
+
+  <div class="container">
+    <div class="grid">
+      <!-- Только 6 карточек = 2 ряда по 3 -->
+      <div class="card"><div class="crystal"></div><div class="name">BRAWL STARS<br>100 GEMS</div><div class="gems">100 GEMS</div><div class="price">1,49</div></div>
+      <div class="card"><div class="crystal"></div><div class="name">BRAWL STARS<br>100 GEMS</div><div class="gems">100 GEMS</div><div class="price">1,49</div></div>
+      <div class="card"><div class="crystal"></div><div class="name">BRAWL STARS<br>2700 GEMS</div><div class="gems">2700 GEMS</div><div class="price">37,99 USD</div></div>
+
+      <div class="card"><div class="crystal"></div><div class="name">BRAWL STARS<br>2700 GEMS</div><div class="gems">2700 GEMS</div><div class="price">37,99 USD</div></div>
+      <div class="card"><div class="crystal"></div><div class="dots">••••</div></div>
+      <div class="card"><div class="crystal"></div><div class="dots">••••</div></div>
+    </div>
+  </div>
+
+</body>
+</html>
